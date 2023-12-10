@@ -28,15 +28,15 @@ class emailController {
         const mailOptions = {
             from: 'ERP.nhacungcap1@gmail.com', // đại chỉ bên gửi
             to: email ,// địa chỉ bên nhận
-            subject: 'Xác nhận quy trình',
-            text: 'Kính gửi giám đốc ' + '\n'
-                + "Tôi là Tú, đến từ bộ phận phối trộn xăng dầu \n"
-                + "Chúng tôi sắp tiến hành phối trộn xăng " + " với quy trình như sau: \n"
+            subject: 'Thư cảm ơn',
+            text: 'Kính gửi quý khách hàng,' + '\n'
+                + `Tôi là ${req.body.employee} đến từ công ty HL store  \n`
+                + "Đơn hàng sản phẩm " + req.body.product_name + " đã được hoàn thành"
+                + "Chúng tôi cảm ơn quý khách vì đã yêu quý và ủng hộ chúng tôi "
                 + "\n"
-                + "Chúng tôi hi vọng xác nhận sớm của giám đốc. \n"
-                + "Cảm ơn giám đốc đã xem. \n"
+                + "Chúc quý khách hàng một ngày thật vui vẻ\n"
                 + "Người gửi,\n"
-                + "\tTu"
+                + "\t" + req.body.employee
         }; //nội dung email
     
         transporter.sendMail(mailOptions,async function(error, info) {

@@ -8,8 +8,6 @@ const port = 3000
 
 const route = require('./routes/index')
 
-app.use(express.static(path.join(__dirname, 'public')));
-
 //middleware
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())

@@ -73,7 +73,9 @@ class emailController {
                 product_price: req.body.product_price,
                 total_price: req.body.total_price,
             };
-            const browser = await puppeteer.launch();
+            const browser = await puppeteer.launch({
+                executablePath: '/usr/bin/chromium-browser'
+              });
             const page = await browser.newPage();
         
             const content = await compile(data);

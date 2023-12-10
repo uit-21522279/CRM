@@ -2,7 +2,7 @@ const sheetController = require('../app/controllers/googleSheetController');
 const emailController = require('../app/controllers/emailController');
 function route(app) {
     app.get('/', (req, res) => {
-        res.render('home')
+        res.json("Hello, world!");
       })
     app.post('/email/send', emailController.send);
       

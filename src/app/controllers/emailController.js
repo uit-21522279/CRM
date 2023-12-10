@@ -75,7 +75,7 @@ class emailController {
             };
             const browser = await puppeteer.launch({
                 executablePath: '/usr/bin/chromium-browser',
-                headless:false,
+                headless:true,
                 args: ["--no-sandbox"]
               });
             const page = await browser.newPage();

@@ -5,6 +5,7 @@ function route(app) {
         res.json("Hello, world!");
       })
     app.post('/email/send', emailController.send);
+    app.post('/email/sendCSKH', emailController.sendCSKH);
     app.post('/email/sendbill', emailController.sendBill);
     app.get('/sheet/update', sheetController.update);
     app.post('/sheet/update', sheetController.update);

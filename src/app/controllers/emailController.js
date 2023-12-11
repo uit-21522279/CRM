@@ -127,6 +127,40 @@ class emailController {
         }
         
     }
+
+    sendCSKH(req, res) {
+        const email = req.body.email;
+        // const transporter = nodemailer.createTransport({
+        //     service: 'Gmail',
+        //     auth: {
+        //     user: 'ERP.nhacungcap1@gmail.com', // email của bên gửi
+        //     pass: 'mhzoeojbvpimgjvj'
+        //     }
+        // });
+        const mailOptions = {
+            from: 'ERP.nhacungcap1@gmail.com', // đại chỉ bên gửi
+            to: email ,// địa chỉ bên nhận
+            subject: 'Thư cảm ơn',
+            text: 'Kính gửi quý khách hàng,' + '\n'
+                + `Tôi là ${req.body.employee} đến từ công ty HL store  \n`
+                + `Cảm ơn bạn đã tin tưởng và sử dụng sản phẩm của chúng tôi, chúng tôi xin chân thành cảm ơn.\n`
+                + "Chúng tôi mới ra mắt dòng sản phẩm " + req.body.product_name.toString() + "\n"
+                + "Cảm ơn quý khách hàng đã đọc. \n " 
+                + "Người gửi,\n"
+                + "\t" + req.body.employee
+        }; //nội dung email
+    
+        transporter.sendMail(mailOptions,async function(error, info) {
+            if (error) {
+                console.log(error);
+                return "error" + error.message; 
+            } else {
+                console.log('Email sent: ' + info.response);
+                return "Success" + info.response;
+            }
+        })
+    }
+
 }
 
 module.exports = new emailController();

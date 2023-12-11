@@ -6,7 +6,7 @@ function route(app) {
       })
     app.post('/email/send', emailController.send);
     app.post('/email/sendbill', emailController.sendBill);
-      
+    app.get('/sheet/update', sheetController.update);
     app.post('/sheet/update', sheetController.update);
 }
 

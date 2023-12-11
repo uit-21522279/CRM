@@ -11,10 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "fs-extra": "^11.2.0",
+    "google-auth-library": "^9.4.1",
+    "google-spreadsheet": "^4.1.1",
+    "googleapis": "^105.0.0",
     "handlebars": "^4.7.8",
     "moment": "^2.29.4",
     "morgan": "^1.10.0",
@@ -22,6 +26,7 @@
     "nodemailer": "^6.9.7",
     "nodemon": "^3.0.2",
     "path": "^0.12.7",
+    "process": "^0.11.10",
     "puppeteer": "^21.6.0"
   }
 }

@@ -8,8 +8,8 @@ const path = require('path');
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-    user: 'ERP.nhacungcap1@gmail.com', // email của bên gửi
-    pass: 'mhzoeojbvpimgjvj'
+    user: , // email của bên gửi
+    pass:
     }
 });
 

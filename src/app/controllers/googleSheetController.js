@@ -1,9 +1,6 @@
 
 const fs = require('fs').promises;
 const path = require('path');
-const process = require('process');
-const {authenticate} = require('@google-cloud/local-auth');
-const {google} = require('googleapis');
 const { JWT } = require('google-auth-library');
 const { GoogleSpreadsheet } = require('google-spreadsheet')
 
@@ -22,11 +19,6 @@ class sheetController {
             ],
         });
         const doc = new GoogleSpreadsheet(spreadsheetsId, serviceAccountAuth);
-
-        // await doc.useServiceAccountAuth({
-        //     client_email: CLIENT_EMAIL,
-        //     private_key: PRIVATE_KEY,
-        // });
 
         await doc.loadInfo();
 

@@ -7,9 +7,9 @@ const path = require('path');
 
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
-    auth: {
-    user: , // email của bên gửi
-    pass:
+    auth: { 
+    user: '21522279@gm.uit.edu.vn', // email của bên gửi
+    pass: 'Laple133)'
     }
 });
 

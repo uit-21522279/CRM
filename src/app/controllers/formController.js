@@ -2,9 +2,26 @@ const axios = require('axios');
 class formController {
     async index(req,res) {
         console.log(req.body);
+
+        let bodyData = req.body;
+
+    // Handle improperly formatted JSON
+    if (typeof bodyData === 'object' && Object.keys(bodyData).length === 1) {
+        const singleKey = Object.keys(bodyData)[0];
+        try {
+            // Attempt to parse the single key as JSON
+            bodyData = JSON.parse(singleKey);
+        } catch (err) {
+            console.error('Failed to parse JSON:', err);
+            return res.status(400).send({ error: 'Invalid JSON payload' });
+        }
+    }
+
+    console.log('Parsed req.body:', bodyData);
+
         let data = {
-            "app_id": "cli_a5fda5d27138502f",
-            "app_secret": "UUF5ku27wbxk2QpW0CUjEbdqLIbzMLZV"
+            "app_id": "cli_a7c687a4de38502f",
+            "app_secret": "PkmEHKSHdsuZVzBAUBDIuJRBK5II8fHL"
         };
         var access_token = '';
         await axios.post('https://open.larksuite.com/open-apis/auth/v3/app_access_token/internal', data)
@@ -14,16 +31,16 @@ class formController {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + access_token,
             } 
-            let app_token  = 'VXdCbVJRGa5UHisRpyflm3lIgAd';
-            let table_id = 'tbljqk5C4t07ThjI';
+            let app_token  = 'Eq2cbJmZDabNTYsHALclrQdGgof';
+            let table_id = 'tblGI9mq50xGkOj8';
             await axios.post(`https://open.larksuite.com/open-apis/bitable/v1/apps/${app_token}/tables/${table_id}/records`, {
                 fields: {
-                    'Tên khách hàng': req.body.name,
-                    'Email': req.body.email,
-                    'Giới tính': req.body.gender ,
-                    'Số điện thoại': req.body.phone,
-                    'Địa chỉ': req.body.location,
-                    'Ghi chú': req.body.ghichu
+                    "Email": bodyData.email,
+                    "Giới tính": bodyData.gender,
+                    "Số điện thoại": bodyData.phone,
+                    "Tên khách hàng": bodyData.name,
+                    "Vấn đề quan tâm": bodyData.ghichu,
+                    "Địa chỉ": bodyData.location
                 }
             }, {
                 headers: headers

@@ -11,6 +11,7 @@ function route(app) {
     app.get('/sheet/update', sheetController.update);
     app.post('/sheet/update', sheetController.update);
     app.post('/contact', formController.index);
+    app.post('/email/status', emailController.status);
 }
 
 module.exports = route

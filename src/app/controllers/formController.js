@@ -40,7 +40,8 @@ class formController {
                     "Số điện thoại": bodyData.phone,
                     "Tên khách hàng": bodyData.name,
                     "Vấn đề quan tâm": bodyData.ghichu,
-                    "Địa chỉ": bodyData.location
+                    "Loại khách hàng": bodyData.type,
+                    "Địa chỉ": bodyData.location,
                 }
             }, {
                 headers: headers
